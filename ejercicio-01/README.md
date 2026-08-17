@@ -1,0 +1,7 @@
+# Documentación del Servidor Web Local - Ejercicio 01
+
+* **Servidor web seleccionado:** Express (Node.js)
+* **Razón de elección:** Se eligió Express por ser un framework web ligero, rápido y sencillo de implementar dentro del entorno de Node.js y muy eficiente para servir archivos estáticos directamente desde el repositorio sin requerir la instalación o configuración compleja de servicios del sistema adicionales como Apache o Nginx. Ademas de que no impone una estructura rígida de proyecto siendo de esta manera muy adaptable.
+* **Puerto utilizado:** 3000 (Esto debido a que se hizo la tarea usando wsl, y linux tiene los primeros 1024 puertos privilegiados por lo que se selecciona el puerto 3000 para no tener que elevar privilegios)
+* **URL:** http://localhost:3000/
+* **Configuración:** Se definió la ruta explícita del repositorio local (`/home/neicort/repos/CI-0137-ejercicios-C25063`) mediante el middleware `express.static()` para establecer la raíz desde donde el servidor web sirve los archivos del sitio en el archivo `server.js`. Se utilizaron los comandos `npm init -y` y `npm install express` para la configuración por defecto de archivos y dependencias necesarias. Se crea un archivo `index.html` sencillo para mostrar el funcionamiento del localhost.

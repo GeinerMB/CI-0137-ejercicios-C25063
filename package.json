@@ -1,0 +1,24 @@
+{
+  "name": "ci-0137-ejercicios-c25063",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeinerMB/CI-0137-ejercicios-C25063.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeinerMB/CI-0137-ejercicios-C25063/issues"
+  },
+  "homepage": "https://github.com/GeinerMB/CI-0137-ejercicios-C25063#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
