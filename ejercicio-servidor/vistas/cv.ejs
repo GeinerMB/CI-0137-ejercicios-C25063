@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículum - Geiner Montoya</title>
+  <link rel="icon" href="<%= cv.favicon %>" type="image/jpeg">
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+
+  <header class="cv-header">
+    <h1><%= cv.nombre %></h1>
+    <p><strong><%= cv.rol %></strong></p>
+
+    <img class="profile-photo" src="<%= cv.fotoPerfil %>" alt="Fotografía de perfil de Geiner Montoya" width="150">
+
+    <section>
+      <h2>Contacto</h2>
+      <ul>
+        <li><strong>Teléfono:</strong> <a href="<%= cv.contacto.telefonoHref %>"><%= cv.contacto.telefonoTexto %></a></li>
+        <li><strong>Correo:</strong> <a href="<%= cv.contacto.correoHref %>"><%= cv.contacto.correo %></a></li>
+      </ul>
+    </section>
+  </header>
+
+  <main class="cv-main">
+
+    <section>
+      <h2>About Me</h2>
+      <p><%= cv.sobreMi %></p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <% cv.experiencia.forEach((exp) => { %>
+        <article>
+          <h3><%= exp.encabezado %></h3>
+          <p><strong><%= exp.puesto %></strong></p>
+          <ul>
+            <% exp.logros.forEach((item) => { %>
+              <li><%= item %></li>
+            <% }) %>
+          </ul>
+        </article>
+      <% }) %>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <% cv.educacion.forEach((edu) => { %>
+        <article>
+          <h3><%= edu.encabezado %></h3>
+          <p><strong><%= edu.programa %></strong></p>
+          <ul>
+            <% edu.detalles.forEach((detalle) => { %>
+              <li><%= detalle %></li>
+            <% }) %>
+          </ul>
+        </article>
+      <% }) %>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <% cv.habilidades.forEach((skill) => { %>
+          <li><strong><%= skill.categoria %>:</strong> <%= skill.detalle %></li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <table>
+        <caption><%= cv.idiomas.caption %></caption>
+        <thead>
+          <tr>
+            <th scope="col">Idioma</th>
+            <th scope="col">Nivel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cv.idiomas.lista.forEach((lang) => { %>
+            <tr>
+              <td><%= lang.idioma %></td>
+              <td><%= lang.nivel %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <% cv.proyectos.forEach((proy) => { %>
+        <article>
+          <h3><%= proy.nombre %></h3>
+          <p><strong><%= proy.tipo %></strong></p>
+          <p><%= proy.descripcion %></p>
+        </article>
+      <% }) %>
+    </section>
+
+    <section>
+      <h2>References</h2>
+      <% cv.referencias.forEach((ref) => { %>
+        <article>
+          <h3><%= ref.nombre %></h3>
+          <p><%= ref.rol %></p>
+          <p>Phone: <a href="<%= ref.telefonoHref %>"><%= ref.telefonoTexto %></a></p>
+        </article>
+      <% }) %>
+    </section>
+
+    <section>
+      <h2>Contacto directo</h2>
+      <% if (errorFormulario) { %>
+        <p style="color: #e07a3f; font-weight: 600;"><%= errorFormulario %></p>
+      <% } %>
+      <form action="/contacto" method="POST">
+        <p>
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 0.5rem;">
+        </p>
+        <p>
+          <label for="correo">Correo:</label><br>
+          <input type="email" id="correo" name="correo" required style="width: 100%; padding: 0.5rem;">
+        </p>
+        <p>
+          <label for="mensaje">Mensaje:</label><br>
+          <textarea id="mensaje" name="mensaje" rows="4" required style="width: 100%; padding: 0.5rem;"></textarea>
+        </p>
+        <button type="submit" style="padding: 0.6rem 1.2rem; cursor: pointer;">Enviar mensaje</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; <%= cv.piePagina %></p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

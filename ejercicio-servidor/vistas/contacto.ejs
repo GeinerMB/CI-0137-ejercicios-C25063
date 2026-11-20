@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensaje recibido - <%= cv.nombre %></title>
+  <link rel="icon" href="<%= cv.favicon %>" type="image/jpeg">
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <main class="cv-main">
+    <section>
+      <h1>Mensaje enviado</h1>
+      <p>Gracias por escribir, <strong><%= nombre %></strong>. Se recibió tu mensaje desde <strong><%= correo %></strong>.</p>
+      <blockquote>"<%= mensaje %>"</blockquote>
+      <p><a href="/">Volver al currículum</a></p>
+    </section>
+  </main>
+</body>
+</html>
